@@ -3,7 +3,6 @@ const names = [
   "Ivy", "Jack", "Karen", "Liam", "Mia", "Noah", "Olivia", "Peter", "Quincy",
   "Rachel", "Sam", "Tina", "Uma", "Victor", "Wendy", "Xavier", "Yara", "Zane"
 ];
-renderNameList();
 // Timer Script
       let startTime;
       const contactForm = document.getElementById("contactForm");
@@ -27,12 +26,7 @@ renderNameList();
         confirmation.textContent = `Thank you! Your message was submitted. You spent ${timeSpent} seconds.`;
         contactForm.reset();
         startTime = null;
-        timerDisplay.textContent = "Time spent: 0 seconds";
-       
-        console.log(name,email);
-        names.push(name.trim());
-        console.log(names);
-        renderNameList();
+        timerDisplay.textContent = "Time spent: 0 seconds";        
       });
 
       function updateTimer() {
@@ -71,7 +65,7 @@ function renderNameList() {
     list.appendChild(li);
   });
 }
-
+renderNameList();
 // Sort the array and re-render the list
 function sortNames() {
   const sortOrder = document.getElementById("sortOrder").value;
