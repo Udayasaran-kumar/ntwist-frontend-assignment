@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQ Accordion</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    details {
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 0.5rem 1rem;
+      background-color: #f9f9f9;
+    }
+
+    summary {
+      font-weight: bold;
+      cursor: pointer;
+      outline: none;
+    }
+
+    details[open] {
+      background-color: #eef;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+   <aside class="sidebar">
+        <h2>NTWIST</h2>
+        <h3>Sidebar</h3>
+        <nav>
+         <ul style="list-style: none; padding-left: 0">
+  <li>
+    <a href="index.html" style="text-decoration: none; font-weight: 600;">
+      📝 Contact Form
+    </a>
+  </li>
+  <li>
+    <a href="sort.html" style="text-decoration: none; font-weight: 600;">
+      📋 Sortable List
+    </a>
+  </li>
+  <li>
+    <a href="faq.html" style="text-decoration: none; font-weight: 600;">
+      ❓ FAQ
+    </a>
+  </li>
+</ul>
+        </nav>
+      </aside>
+
+    <main class="form-content">
+      <h1>Frequently Asked Questions</h1>
+
+      <details>
+        <summary>What is this app about?</summary>
+        <p>This is a frontend assignment demo built using HTML, CSS, and JavaScript.</p>
+      </details>
+
+      <details>
+        <summary>How do I submit the form?</summary>
+        <p>Fill all fields, and click the submit button. A timer tracks how long you take.</p>
+      </details>
+
+      <details>
+        <summary>How is the list sorted?</summary>
+        <p>The list is sorted alphabetically using vanilla JavaScript when you click the sort button.</p>
+      </details>
+      <details>
+  <summary>What technologies are used in this project?</summary>
+  <p>This project uses HTML, CSS, and Vanilla JavaScript only—no external libraries or frameworks.</p>
+</details>
+
+<details>
+  <summary>Is the application responsive?</summary>
+  <p>Yes, all pages are designed to be mobile-friendly using CSS Flexbox and media queries.</p>
+</details>
+
+<details>
+  <summary>How is the form submission handled?</summary>
+  <p>The form uses HTML5 validation and displays a confirmation message along with the time spent.</p>
+</details>
+
+<details>
+  <summary>What happens after submitting the form?</summary>
+  <p>A success message is shown, the form is reset, and the time tracker is cleared.</p>
+</details>
+
+<details>
+  <summary>How is the rating feature implemented?</summary>
+  <p>The star rating widget is built using HTML, CSS for styling, and JS for submission logic.</p>
+</details>
+
+<details>
+  <summary>Can I sort the list in both directions?</summary>
+  <p>Yes, the dropdown lets you sort the list either A–Z or Z–A without reloading the page.</p>
+</details>
+
+<details>
+  <summary>Is JavaScript used on the FAQ page?</summary>
+  <p>No, the FAQ accordion uses only HTML `<details>` tags and CSS. No JavaScript is used.</p>
+</details>
+
+<details>
+  <summary>How do I navigate between pages?</summary>
+  <p>Each sidebar includes links to other pages like the form, list viewer, and FAQ sections.</p>
+</details>
+
+<details>
+  <summary>Can I customize the layout?</summary>
+  <p>Yes. The layout is controlled by reusable CSS and can be easily modified.</p>
+</details>
+
+<details>
+  <summary>How is the project structured?</summary>
+  <p>Each feature is in its own HTML file. Assets are organized under a common `assets/` folder.</p>
+</details>
+
+    </main>
+  </div>
+</body>
+</html>
