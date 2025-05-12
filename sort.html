@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sortable List</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <h2>NTWIST</h2>
+        <h3>Sidebar</h3>
+        <nav>
+        <ul style="list-style: none; padding-left: 0">
+  <li>
+    <a href="index.html" style="text-decoration: none; font-weight: 600;">
+      📝 Contact Form
+    </a>
+  </li>
+  <li>
+    <a href="sort.html" style="text-decoration: none; font-weight: 600;">
+      📋 Sortable List
+    </a>
+  </li>
+  <li>
+    <a href="faq.html" style="text-decoration: none; font-weight: 600;">
+      ❓ FAQ
+    </a>
+  </li>
+</ul>
+        </nav>
+      </aside>
+
+      <main class="form-content">
+        <h1>Sortable Name List</h1>
+
+        <label for="sortOrder">Sort Order:</label>
+        <select id="sortOrder" onchange="sortNames()">
+          <option value="asc">A - Z</option>
+          <option value="desc">Z - A</option>
+        </select>
+
+        <ul id="nameList">
+          <li>David</li>
+          <li>Alice</li>
+          <li>Charlie</li>
+          <li>Bob</li>
+          <li>Emma</li>
+          <li>Frank</li>
+          <li>Grace</li>
+          <li>Helen</li>
+          <li>Ivy</li>
+          <li>Jack</li>
+          <li>Karen</li>
+          <li>Liam</li>
+          <li>Mia</li>
+          <li>Noah</li>
+          <li>Olivia</li>
+          <li>Peter</li>
+          <li>Quincy</li>
+          <li>Rachel</li>
+          <li>Sam</li>
+          <li>Tina</li>
+          <li>Uma</li>
+          <li>Victor</li>
+          <li>Wendy</li>
+          <li>Xavier</li>
+          <li>Yara</li>
+          <li>Zane</li>
+        </ul>
+      </main>
+    </div>
+
+    <script>
+      function sortNames() {
+        const list = document.getElementById("nameList");
+        const sortOrder = document.getElementById("sortOrder").value;
+        const items = Array.from(list.children);
+
+        items.sort((a, b) => {
+          const textA = a.textContent.toLowerCase();
+          const textB = b.textContent.toLowerCase();
+          return sortOrder === "asc"
+            ? textA.localeCompare(textB)
+            : textB.localeCompare(textA);
+        });
+
+        items.forEach((item) => list.appendChild(item)); // Reorder the list
+      }
+    </script>
+  </body>
+</html>
