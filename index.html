@@ -32,28 +32,38 @@
     </style>
   </head>
   <body>
+    <h2 id="onehead">NTWIST User Contact Form</h2>
     <div class="container">
-      <aside class="sidebar">
-        <h2>NTWIST</h2>
+      <button class="hamburger" onclick="toggleSidebar()">☰</button>
+      <aside class="sidebar" id="sidebar">
         <h3>Sidebar</h3>
         <nav>
-        <ul style="list-style: none; padding-left: 0">
-  <li>
-    <a href="index.html" style="text-decoration: none; font-weight: 600;">
-      📝 Contact Form
-    </a>
-  </li>
-  <li>
-    <a href="sort.html" style="text-decoration: none; font-weight: 600;">
-      📋 Sortable List
-    </a>
-  </li>
-  <li>
-    <a href="faq.html" style="text-decoration: none; font-weight: 600;">
-      ❓ FAQ
-    </a>
-  </li>
-</ul>
+          <ul style="list-style: none; padding-left: 0">
+            <li>
+              <a
+                href="index.html"
+                style="text-decoration: none; font-weight: 600"
+              >
+                📝 Contact Form
+              </a>
+            </li>
+            <li>
+              <a
+                href="sort.html"
+                style="text-decoration: none; font-weight: 600"
+              >
+                📋 Sortable List
+              </a>
+            </li>
+            <li>
+              <a
+                href="faq.html"
+                style="text-decoration: none; font-weight: 600"
+              >
+                ❓ FAQ
+              </a>
+            </li>
+          </ul>
         </nav>
       </aside>
 
@@ -97,49 +107,6 @@
         </form>
       </main>
     </div>
-
-    <script>
-      // Timer Script
-      let startTime;
-      const contactForm = document.getElementById("contactForm");
-      const timerDisplay = document.getElementById("timer");
-      const confirmation = document.getElementById("confirmation");
-
-      contactForm.addEventListener("focusin", () => {
-        if (!startTime) {
-          startTime = Date.now();
-          updateTimer();
-        }
-      });
-
-      contactForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const timeSpent = Math.floor((Date.now() - startTime) / 1000);
-        confirmation.classList.remove("hidden");
-        confirmation.textContent = `Thank you! Your message was submitted. You spent ${timeSpent} seconds.`;
-        contactForm.reset();
-        startTime = null;
-        timerDisplay.textContent = "Time spent: 0 seconds";
-      });
-
-      function updateTimer() {
-        if (!startTime) return;
-        const elapsed = Math.floor((Date.now() - startTime) / 1000);
-        timerDisplay.textContent = `Time spent: ${elapsed} seconds`;
-        requestAnimationFrame(updateTimer);
-      }
-
-      // Rating Script
-      const ratingForm = document.getElementById("ratingForm");
-      const ratingMessage = document.getElementById("ratingMessage");
-
-      ratingForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const selected = ratingForm.star.value;
-        ratingMessage.textContent = selected
-          ? `Thank you for rating us ${selected} star(s)!`
-          : "Please select a rating.";
-      });
-    </script>
+    <script src="assets/js/main.js"></script>
   </body>
 </html>
