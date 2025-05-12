@@ -4,37 +4,38 @@ const names = [
   "Rachel", "Sam", "Tina", "Uma", "Victor", "Wendy", "Xavier", "Yara", "Zane"
 ];
 // Timer Script
-      let startTime;
-      const contactForm = document.getElementById("contactForm");
-      const timerDisplay = document.getElementById("timer");
-      const confirmation = document.getElementById("confirmation");
+  let startTime;
+const contactForm = document.getElementById("contactForm");
+const timerDisplay = document.getElementById("timer");
+const confirmation = document.getElementById("confirmation");
 
-      contactForm.addEventListener("focusin", () => {
-        if (!startTime) {
-          startTime = Date.now();
-          updateTimer();
-        }
-      });
+contactForm.addEventListener("focusin", () => {
+  if (!startTime) {
+    startTime = Date.now();
+    updateTimer();
+  }
+});
 
-      contactForm.addEventListener("submit", (e) => {
-        e.preventDefault();  
+contactForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const timeSpent = Math.floor((Date.now() - startTime) / 1000);
 
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const timeSpent = Math.floor((Date.now() - startTime) / 1000);
-        confirmation.classList.remove("hidden");
-        confirmation.textContent = `Thank you! Your message was submitted. You spent ${timeSpent} seconds.`;
-        contactForm.reset();
-        startTime = null;
-        timerDisplay.textContent = "Time spent: 0 seconds";        
-      });
+  confirmation.classList.remove("hidden");
+  confirmation.textContent = `Thank you! Your message was submitted. You spent ${timeSpent} seconds.`;
 
-      function updateTimer() {
-        if (!startTime) return;
-        const elapsed = Math.floor((Date.now() - startTime) / 1000);
-        timerDisplay.textContent = `Time spent: ${elapsed} seconds`;
-        requestAnimationFrame(updateTimer);
-      }
+  contactForm.reset();
+  startTime = null;
+  timerDisplay.textContent = "Time spent: 0 seconds";
+});
+
+function updateTimer() {
+  if (!startTime) return;
+  const elapsed = Math.floor((Date.now() - startTime) / 1000);
+  timerDisplay.textContent = `Time spent: ${elapsed} seconds`;
+  requestAnimationFrame(updateTimer);
+}
 
       // Rating Script
       const ratingForm = document.getElementById("ratingForm");
