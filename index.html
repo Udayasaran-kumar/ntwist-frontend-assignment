@@ -1,130 +1,145 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Form & Rating</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <style>
-    .rating {
-      direction: rtl;
-      display: inline-flex;
-      font-size: 2rem;
-      gap: 0.2rem;
-    }
-    .rating input {
-      display: none;
-    }
-    .rating label {
-      cursor: pointer;
-      color: #ccc;
-      transition: color 0.2s;
-    }
-    .rating input:checked ~ label,
-    .rating label:hover,
-    .rating label:hover ~ label {
-      color: gold;
-    }
-    .message {
-      margin-top: 1rem;
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <aside class="sidebar">
-      <h2>Sidebar</h2>
-      <nav>
-        <ul>
-          <li><a href="index.html">📝Contact Form</a></li>
-          <li><a href="sort.html">📋 Sortable List</a></li>
-          <li><a href="faq.html">❓FAQ</a></li>          
-        </ul>
-      </nav>
-    </aside>
-
-    <main class="form-content">
-      <h1>Contact Us</h1>
-      <form id="contactForm">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required />
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" required></textarea>
-
-        <button type="submit">Submit</button>
-        <p id="timer">Time spent: 0 seconds</p>
-        <p id="confirmation" class="hidden">Thank you! Your message was submitted.</p>
-      </form>
-
-      <hr style="margin: 2rem 0;" />
-
-      <h2>Star Rating Widget</h2>
-      <form id="ratingForm">
-        <div class="rating">
-          <input type="radio" name="star" id="star5" value="5" />
-          <label for="star5">★</label>
-          <input type="radio" name="star" id="star4" value="4" />
-          <label for="star4">★</label>
-          <input type="radio" name="star" id="star3" value="3" />
-          <label for="star3">★</label>
-          <input type="radio" name="star" id="star2" value="2" />
-          <label for="star2">★</label>
-          <input type="radio" name="star" id="star1" value="1" />
-          <label for="star1">★</label>
-        </div>
-        <button type="submit">Submit Rating</button>
-        <p class="message" id="ratingMessage"></p>
-      </form>
-    </main>
-  </div>
-
-  <script>
-    // Timer Script
-    let startTime;
-    const contactForm = document.getElementById('contactForm');
-    const timerDisplay = document.getElementById('timer');
-    const confirmation = document.getElementById('confirmation');
-
-    contactForm.addEventListener('focusin', () => {
-      if (!startTime) {
-        startTime = Date.now();
-        updateTimer();
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form & Rating</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      .rating {
+        direction: rtl;
+        display: inline-flex;
+        font-size: 2rem;
+        gap: 0.2rem;
       }
-    });
+      .rating input {
+        display: none;
+      }
+      .rating label {
+        cursor: pointer;
+        color: #ccc;
+        transition: color 0.2s;
+      }
+      .rating input:checked ~ label,
+      .rating label:hover,
+      .rating label:hover ~ label {
+        color: gold;
+      }
+      .message {
+        margin-top: 1rem;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <h2>NTWIST</h2>
+        <h3>Sidebar</h3>
+        <nav>
+        <ul style="list-style: none; padding-left: 0">
+  <li>
+    <a href="index.html" style="text-decoration: none; font-weight: 600;">
+      📝 Contact Form
+    </a>
+  </li>
+  <li>
+    <a href="sort.html" style="text-decoration: none; font-weight: 600;">
+      📋 Sortable List
+    </a>
+  </li>
+  <li>
+    <a href="faq.html" style="text-decoration: none; font-weight: 600;">
+      ❓ FAQ
+    </a>
+  </li>
+</ul>
+        </nav>
+      </aside>
 
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const timeSpent = Math.floor((Date.now() - startTime) / 1000);
-      confirmation.classList.remove('hidden');
-      confirmation.textContent = `Thank you! Your message was submitted. You spent ${timeSpent} seconds.`;
-      contactForm.reset();
-      startTime = null;
-      timerDisplay.textContent = "Time spent: 0 seconds";
-    });
+      <main class="form-content">
+        <h1>Contact Us</h1>
+        <form id="contactForm">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
 
-    function updateTimer() {
-      if (!startTime) return;
-      const elapsed = Math.floor((Date.now() - startTime) / 1000);
-      timerDisplay.textContent = `Time spent: ${elapsed} seconds`;
-      requestAnimationFrame(updateTimer);
-    }
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
 
-    // Rating Script
-    const ratingForm = document.getElementById('ratingForm');
-    const ratingMessage = document.getElementById('ratingMessage');
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
 
-    ratingForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const selected = ratingForm.star.value;
-      ratingMessage.textContent = selected
-        ? `Thank you for rating us ${selected} star(s)!`
-        : 'Please select a rating.';
-    });
-  </script>
-</body>
+          <button type="submit">Submit</button>
+          <p id="timer">Time spent: 0 seconds</p>
+          <p id="confirmation" class="hidden">
+            Thank you! Your message was submitted.
+          </p>
+        </form>
+
+        <br /><br /><br />
+
+        <h2>Star Rating Widget</h2>
+        <form id="ratingForm">
+          <div class="rating">
+            <input type="radio" name="star" id="star5" value="5" />
+            <label for="star5">★</label>
+            <input type="radio" name="star" id="star4" value="4" />
+            <label for="star4">★</label>
+            <input type="radio" name="star" id="star3" value="3" />
+            <label for="star3">★</label>
+            <input type="radio" name="star" id="star2" value="2" />
+            <label for="star2">★</label>
+            <input type="radio" name="star" id="star1" value="1" />
+            <label for="star1">★</label>
+          </div>
+          <button type="submit">Submit Rating</button>
+          <p class="message" id="ratingMessage"></p>
+        </form>
+      </main>
+    </div>
+
+    <script>
+      // Timer Script
+      let startTime;
+      const contactForm = document.getElementById("contactForm");
+      const timerDisplay = document.getElementById("timer");
+      const confirmation = document.getElementById("confirmation");
+
+      contactForm.addEventListener("focusin", () => {
+        if (!startTime) {
+          startTime = Date.now();
+          updateTimer();
+        }
+      });
+
+      contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const timeSpent = Math.floor((Date.now() - startTime) / 1000);
+        confirmation.classList.remove("hidden");
+        confirmation.textContent = `Thank you! Your message was submitted. You spent ${timeSpent} seconds.`;
+        contactForm.reset();
+        startTime = null;
+        timerDisplay.textContent = "Time spent: 0 seconds";
+      });
+
+      function updateTimer() {
+        if (!startTime) return;
+        const elapsed = Math.floor((Date.now() - startTime) / 1000);
+        timerDisplay.textContent = `Time spent: ${elapsed} seconds`;
+        requestAnimationFrame(updateTimer);
+      }
+
+      // Rating Script
+      const ratingForm = document.getElementById("ratingForm");
+      const ratingMessage = document.getElementById("ratingMessage");
+
+      ratingForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const selected = ratingForm.star.value;
+        ratingMessage.textContent = selected
+          ? `Thank you for rating us ${selected} star(s)!`
+          : "Please select a rating.";
+      });
+    </script>
+  </body>
 </html>
