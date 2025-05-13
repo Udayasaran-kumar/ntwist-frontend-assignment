@@ -27,6 +27,12 @@
   margin-left: 20%;
   
 }
+.form-content1 {
+  flex: 1;
+  padding: 30px;
+  margin-left: 5%;
+  
+}
 
 form {
   max-width: 400px;
@@ -99,6 +105,7 @@ button {
     color: #000;
     margin-top: 15%;
     }
+  
 
   .sidebar {
     position: fixed;
@@ -121,6 +128,10 @@ button {
 
   .form-content {
     padding: 1rem;
+  }
+  .form-content1 {
+    padding: 1rem;
+    margin-top: 20%;
   }
 
   .container {

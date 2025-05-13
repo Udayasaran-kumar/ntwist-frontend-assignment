@@ -1,8 +1,10 @@
-const names = [
+var names = [
   "David", "Alice", "Charlie", "Bob", "Emma", "Frank", "Grace", "Helen",
   "Ivy", "Jack", "Karen", "Liam", "Mia", "Noah", "Olivia", "Peter", "Quincy",
   "Rachel", "Sam", "Tina", "Uma", "Victor", "Wendy", "Xavier", "Yara", "Zane"
 ];
+// Render once DOM is loaded
+document.addEventListener("DOMContentLoaded", renderNameList);
 // Timer Script
   let startTime;
 const contactForm = document.getElementById("contactForm");
@@ -24,10 +26,11 @@ contactForm.addEventListener("submit", (e) => {
 
   confirmation.classList.remove("hidden");
   confirmation.textContent = `Thank you! Your message was submitted. You spent ${timeSpent} seconds.`;
-
+  console.log("details:"+name,email);
   contactForm.reset();
   startTime = null;
   timerDisplay.textContent = "Time spent: 0 seconds";
+  
 });
 
 function updateTimer() {
@@ -35,7 +38,9 @@ function updateTimer() {
   const elapsed = Math.floor((Date.now() - startTime) / 1000);
   timerDisplay.textContent = `Time spent: ${elapsed} seconds`;
   requestAnimationFrame(updateTimer);
+  
 }
+
 
       // Rating Script
       const ratingForm = document.getElementById("ratingForm");
@@ -55,7 +60,6 @@ function updateTimer() {
 }
 
 
-
 // Render the list into the DOM
 function renderNameList() {
   const list = document.getElementById("nameList");
@@ -66,7 +70,8 @@ function renderNameList() {
     list.appendChild(li);
   });
 }
-renderNameList();
+
+
 // Sort the array and re-render the list
 function sortNames() {
   const sortOrder = document.getElementById("sortOrder").value;
@@ -76,5 +81,3 @@ function sortNames() {
   renderNameList();
 }
 
-// Render once DOM is loaded
-document.addEventListener("DOMContentLoaded", renderNameList);
